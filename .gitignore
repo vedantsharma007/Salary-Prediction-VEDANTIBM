@@ -1,9 +1,39 @@
-# Virtual Environment
-venv/
-# Python compiled files
+# Byte-compiled / optimized / pre-generated files
 __pycache__/
 *.pyc
-# Model and Feature files
+*.pyd
+*.pyo
+*.egg-info/
+.pytest_cache/
+
+# Distribution / packaging
+.Python
+build/
+dist/
+wheels/
+*.egg
+
+# Custom Model and Environment Files (CRITICAL for this project)
+venv/
+env/
 *.pkl
+*.joblib
+model_features.pkl
+
+# Environments (Virtualenv)
+.venv
+
+# Editors and IDEs
+# VS Code
+.vscode/*
+!*.vscode/settings.json
+!*.vscode/tasks.json
+!*.vscode/launch.json
+!*.vscode/extensions.json
+.history/
+
+# Jupyter Notebook Files
+.ipynb_checkpoints
+
 # OS generated files
 .DS_Store
