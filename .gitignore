@@ -1,0 +1,9 @@
+# Virtual Environment
+venv/
+# Python compiled files
+__pycache__/
+*.pyc
+# Model and Feature files
+*.pkl
+# OS generated files
+.DS_Store

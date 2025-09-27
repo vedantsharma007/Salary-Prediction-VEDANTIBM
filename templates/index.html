@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Predictor: Ensemble Learning</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1 class="card-title">Salary Predictor <span class="emoji">💰</span></h1>
+            <p class="card-subtitle">Based on Age, Gender, Education, Job Title & Experience.</p>
+
+            <form id="prediction-form" class="form-grid">
+                
+                <div class="form-group">
+                    <label for="job-title">Job Title</label>
+                    <select id="job-title" required>
+                        <option value="" disabled selected>Select Job Title</option>
+                        {% for title in job_titles %}
+                        <option value="{{ title }}">{{ title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="education-level">Education Level</label>
+                    <select id="education-level" required>
+                        <option value="" disabled selected>Select Education Level</option>
+                        {% for edu in education_levels %}
+                        <option value="{{ edu }}">{{ edu }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" min="18" max="100" step="1" placeholder="e.g., 30" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" required>
+                        <option value="" disabled selected>Select Gender</option>
+                        {% for g in genders %}
+                        <option value="{{ g }}">{{ g }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="experience">Years of Experience</label>
+                    <input type="number" name="experience" id="experience" min="0" max="40" step="0.5" placeholder="e.g., 3.5" required>
+                </div>
+
+                <button type="submit" id="predict-btn" class="submit-btn">
+                    Predict Salary
+                </button>
+            </form>
+
+            <div id="result-box" class="result-box hidden">
+                <h2>Predicted Salary:</h2>
+                <p id="predicted-salary-display">--</p>
+                <div class="loading-spinner"></div>
+            </div>
+
+            <p class="footer-note">Note: Prediction based on your loaded dataset.</p>
+
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
